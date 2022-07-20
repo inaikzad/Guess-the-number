@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-func main() {
+func GuessTheNumber() {
 
 	fmt.Println("Write the highest number I'm allowed to think of: ")
 
@@ -58,3 +58,29 @@ func main() {
 		fmt.Println("It took you a while...")
 	}
 }
+
+func main() {
+
+	var play string
+
+	fmt.Println("Do you want to play a game of guess the number? (yes/no) ")
+	fmt.Scanln(&play)
+
+	if play == "yes" {
+	StartGame:
+		GuessTheNumber()
+		var retry string
+
+		fmt.Println("Do you want to play again? (yes/no)")
+		fmt.Scanln(&retry)
+		if retry == "yes" {
+			goto StartGame
+		} else {
+			fmt.Println("Thanks for playing!")
+		}
+	} else {
+		fmt.Println("Oh okay...")
+	}
+
+}
+
